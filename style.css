@@ -1,0 +1,138 @@
+.about{
+    height: 400px;
+    width: 100%;
+    background-color: white;
+
+}
+.about h1{
+    color: #FF6F6F;
+    font-size: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 80px;
+    animation-name: ice;
+   
+    animation-duration: 2s;
+    transform: translateY(50px); 
+    animation: ice 2s ease-out infinite; 
+}
+
+@keyframes ice {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); 
+    }
+    50% {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@media (max-width: 768px) {
+    .about h1 {
+        font-size: 60px; 
+        margin-top: 40px; 
+        animation-duration: 1.5s; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .about h1 {
+        font-size: 40px; 
+        margin-top: 20px; 
+        animation-duration: 1s; 
+    }
+}
+.card {
+    width: 1000px; 
+    margin-left: 140px;
+    max-width: 1000px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 0.6; 
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.card:hover {
+    transform: scale(1.05); 
+}
+
+.card .image-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    overflow: hidden; 
+}
+
+.card .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+    border-radius: inherit;
+    transition: filter 0.5s ease-in-out;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid white; 
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.card:hover img {
+    filter: grayscale(1) brightness(0.5); 
+}
+
+.card:hover::after {
+    opacity: 1;
+    inset: 15px; 
+}
+
+.content {
+    width: 90%; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; 
+    z-index: 1; 
+}
+@media (max-width: 768px) {
+    .card {
+        width: 80%; /* Adjust width to fit tablet screens */
+        margin-left: auto; /* Center align */
+        margin-right: auto; /* Center align */
+    }
+}
+
+/* Media Query for Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .card {
+        width: 90%; /* Adjust width for mobile devices */
+        margin-left: auto; /* Center align */
+        margin-right: auto; /* Center align */
+    }
+    
+    .content {
+        font-size: 14px; /* Adjust text size for smaller screens */
+        padding: 5px; /* Add padding for better spacing */
+    }
+}
